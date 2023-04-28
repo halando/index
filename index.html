@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <script>
+        function szamolas(){
+            var kezdo = document.getElementById("kezdo").value;
+            var napok = document.getElementById("napok").value;
+            if(napok !="" && napok>= 0){
+                var datum = new Date(kezdo); // yyyy-mm-dd formájú stringből dátum
+                var eredmeny = new Date();
+                window.alert(datum.getFullYear()+"-"+datum.getMonth()+"-"+datum.getDate());
+                datum.setDate(datum.getDate()+napok);
+                document.getElementById("eredmeny").value =datum;
+                //window.alert(kezdodatum);
+
+            }else{
+              document.getElementById("napok").value = "";
+                document.getElementById("napok").focus();
+            }
+        }
+    </script>
+    
+</head>
+<body>
+<input  id = "kezdo" type = "text" disabled value="1867-01-01" />
++
+<input id = "napok" type="text" />
+<input  type="button" value="=" onclick="szamolas();" />
+<input id="eredmeny" type="text" disabled />
+</body>
+</html>
